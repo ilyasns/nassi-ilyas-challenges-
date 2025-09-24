@@ -2,7 +2,7 @@
 
 int main() {
     int T,i; 
-    int s =0;
+    int max;
     printf("donner le nombre d'élément du tableau\n");
     scanf("%d",&T);
 
@@ -16,10 +16,13 @@ int main() {
     
 
     for ( i = 0; i < T; i++) {
-        s = s + tab[i];
-        printf("la somme de tous les valeurs du tab[%d]=%d", T ,s); 
+        max = tab [0];
+        if ( max < tab[i]){
+            max = tab [i];
+        }
+    
     }
-
+ printf("la  valeure max  du tab[%d]est:%d", T ,max); 
     return 0;
 }
-// ex 3
+// ex 4

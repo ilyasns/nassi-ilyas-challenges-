@@ -13,13 +13,18 @@ int main() {
          printf("give a number tab[%d]\n",i);
           scanf("%d",&tab[i]);
         }
+
+        do
+        {
+            printf("%d",tab)
+            
+        } while (condition);
+        
+
+
     
 
-    for ( i = 0; i < T; i++) {
-        s = s + tab[i];
-        printf("la somme de tous les valeurs du tab[%d]=%d", T ,s); 
-    }
 
     return 0;
 }
-// ex 3
+// ex 7
