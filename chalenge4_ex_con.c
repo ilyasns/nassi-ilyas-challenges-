@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-
-
+int main(){
 int ft_sum_triangle(int x, int y, int z)
 {
   int sum = x + y;
@@ -30,4 +29,5 @@ int main()
   int c = 4;
   ft_sum_triangle(a, b, c);
   
+}
 }

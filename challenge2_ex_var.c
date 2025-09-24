@@ -4,8 +4,8 @@ int main() {
     
     const float con =273.15;
     
-    int k[50];
-    int c[50];
+    int k (50);
+    int c(50);
     
     
     printf("donner la temepature en celsius: ");
