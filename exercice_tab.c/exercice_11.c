@@ -47,12 +47,16 @@ int main() {
               printf("donnez une nouvelle valeur a tab[%d]\n",i);
               scanf("%d",&new);
               tab[i]=new;
-
+        break;
 
         }else
         {
           printf("le nombre ne se trouve pas dans le tab\n");
-        }
+        } 
+        for (int i = 0; i < T; i++) {
+
+        printf("[%d]\n", tab[i]); 
+    }
         
 
 
