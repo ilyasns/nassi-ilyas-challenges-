@@ -2,7 +2,7 @@
 
 int main() {
     int T,j=0; 
-    printf("donner le nombre d'élément du tableau\n");
+    printf("donner le nombre delement du tableau\n");
     scanf("%d",&T);
 
     int tab[T];

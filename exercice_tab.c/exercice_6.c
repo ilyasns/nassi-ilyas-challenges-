@@ -2,7 +2,7 @@
 
 int main() {
     int T,i,f; 
-    printf("donner le nombre d'élément du tableau\n");
+    printf("donner le nombre delement du tableau\n");
     scanf("%d",&T);
     printf("donner le facteur \n");
     scanf("%d",&f);
@@ -17,8 +17,8 @@ int main() {
     
 
     for ( i = 0; i < T; i++) {
-        m = m * tab[i];
-        printf("la  multiplication de tous les valeurs du tab[%d]=%d", T ,m); 
+        tab[i] = f * tab[i];
+        printf("la  multiplication de tous les valeurs du tab[%d]=%d", T ,tab[i]); 
     }
 
     return 0;

@@ -3,7 +3,7 @@
 int main() {
     int T,i; 
     int min;
-    printf("donner le nombre d'élément du tableau\n");
+    printf("donner le nombre delement du tableau\n");
     scanf("%d",&T);
 
     int tab[T];

@@ -2,24 +2,25 @@
 
 int main() {
     int T,i; 
-    int s =0;
     printf("donner le nombre delement du tableau\n");
     scanf("%d",&T);
 
     int tab[T];
-  
+    int tab2[T];
+
         for ( i = 0; i <T; i++)
         {
-         printf("give a number tab[%d]\n",i);
+          printf("give a number tab[%d]\n",i);
           scanf("%d",&tab[i]);
         }
+         printf("avant\n");
+       for ( i = 0; i < T; i++)
+       {
+          tab2[T-i] = tab[i];
+            printf("|%d|",tab2[i]);
+       }
+        
     
-
-    for ( i = 0; i < T; i++) {
-        s = s + tab[i];
-        printf("la somme de tous les valeurs du tab[%d]=%d", T ,s); 
-    }
-
     return 0;
 }
-// ex 3
+//ex 9
