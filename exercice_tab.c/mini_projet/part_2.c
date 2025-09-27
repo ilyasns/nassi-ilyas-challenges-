@@ -1,5 +1,6 @@
 #include<stdio.h>
-int main(){
+int main()
+{
     char title[50][100];
     char auteur[50][100];
     int prix[50];

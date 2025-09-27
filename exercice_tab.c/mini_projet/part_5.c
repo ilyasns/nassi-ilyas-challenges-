@@ -2,6 +2,9 @@
 #include <string.h>
 
 
+#define book_num 50
+
+
 // function to return to menu apres le remplissage 
 void retourMenu() {
     printf("\nAppuyez sur Entree pour retourner au menu...");
@@ -15,10 +18,10 @@ void retourMenu() {
 
 int main()
 {
-    const int book_num = 50;
+
     char title[book_num][100];
     char auteur[book_num][100];
-    int prix[book_num];
+    float prix[book_num];
     int quantity[book_num];
     char search_title[100];
     char search_del[100];
@@ -65,7 +68,7 @@ int main()
                     break;
                 case 3:
                     printf("entrez le prix du livre %d: \n",i + 1 ); 
-                    scanf("%d",&prix[i]);
+                    scanf("%f",&prix[i]);
                     retourMenu();
                     break;
                 case 4:
@@ -101,7 +104,7 @@ int main()
                                 {
                                     printf("title %d : %s\n", j + 1, title[j]);
                                     printf("auteur %d : %s\n", j + 1, auteur[j]);
-                                    printf("prix %d : %d\n", j + 1, prix[j]);
+                                    printf("prix %d : %f\n", j + 1, prix[j]);
                                     printf("quantite %d : %d\n", j + 1, quantity[j]);
 
                                 }
