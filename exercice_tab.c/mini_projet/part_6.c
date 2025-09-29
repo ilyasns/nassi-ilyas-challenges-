@@ -23,20 +23,27 @@ int book_num = 0;
 
 // founction ajouter un livre 
 void addBook() {
+    int num =0;
     if (book_num >= MAX_BOOKS) {
         printf(" Le stock est plein :/.\n");
         return;
     }
-    printf("Enter le titre du livre: ");
-    scanf(" % 99s ", title[book_count]);
-    printf("Enter le nom de l auteur du livre: ");
-    scanf(" % 99s", auteur[book_count]);
-    printf("Enter le pris du livre: ");
-    scanf("%f", &prix[book_count]);
-    printf("Enter la quantite dans le stock: ");
-    scanf("%d", &quantity[book_count]);
-    book_count++; 
-    printf("Ce livre a ete ajouter ;)!\n");
+    printf("donner le nombre des livres vous voulez ajouter!!\n");
+    scanf("%d",&num)
+    for (int i = 0; i < num; i++)
+    {
+        printf("Enter le titre du livre: ");
+        scanf(" % 99s ", title[book_count]);
+        printf("Enter le nom de l auteur du livre: ");
+        scanf(" % 99s", auteur[book_count]);
+        printf("Enter le pris du livre: ");
+        scanf("%f", &prix[book_count]);
+        printf("Enter la quantite dans le stock: ");
+        scanf("%d", &quantity[book_count]);
+        book_num++; 
+        printf("Ce livre a ete ajouter ;)!\n");   
+    }
+    
 }
 
 // fonction afficher les livres disponible
@@ -133,21 +140,28 @@ int main() {
 
         switch (choix) {
             case 1: addBook();
+                    retourMenu();
             break;
             case 2: displayBooks();
+                    retourMenu();
             break;
             case 3: searchBook(); 
+                    retourMenu();
             break;
             case 4: updateQuantity(); 
+                    retourMenu();
             break;
             case 5: deleteBook(); 
+                    retourMenu();
             break;
             case 6: totalBooks(); 
+                    retourMenu();
             break;
             case 0: printf("****************Goodbye!<3****************\n"); 
+                    retourMenu();
             break;
             default: printf("choix unvilide. Please try again.8)\n");
-            retourMenu()
+                     retourMenu();
             
         }
     } while (choice != 0);
