@@ -1,0 +1,173 @@
+
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_CONTS 500 // nember max des contact
+
+// function to return to menu  
+void retourMenu() {
+    printf("\nAppuyez sur Entree pour retourner au menu...");
+    getchar(); 
+    getchar(); 
+    system("clear"); 
+    
+}
+
+// tableau avec contact info
+typedef struct
+{
+    char nom[MAX_CONTS][100];     
+    char email[MAX_CONTS][100];            
+    int numbre[MAX_CONTS]; 
+}contact;
+
+int cont_num = 0; 
+
+// founction ajouter 
+void addcont() {
+    int numajj=0;
+    if (cont_num >= MAX_CONTS) {
+        printf(" Le stockage est plein :/.\n");
+        return;
+    }
+    printf("donner le nombre des contacts vous voulez ajouter!!\n");
+    scanf("%d",&numajj);
+    for (int i = 0; i < numajj; i++)
+    {
+        printf("Enter le nom du contact: ");
+        gets(contact[i].nom)
+        printf("Enter l'adress email du contact: ");
+        gets(contact[i].email)
+        printf("Enter le numero de ce contact : ");
+        scanf("%d", contact[i].numbre);
+        cont_num++; 
+        printf("Ce contact a ete ajouter ;)!\n");   
+    }
+    
+}
+
+// fonction afficher 
+void displayall() {
+    if (cont_num == 0) {
+        printf("auqu'un contact  se trouve dans le systheme!\n");
+        return;
+    }
+    printf("\nList des contact disponible dans le systheme:\n");
+    for (int i = 0; i < cont_num i++) { 
+        printf("%d. Nom: %s | email: %s | Numbre: %d\n",  i+1, contact[i].nom, contact[i].email, contact[i].numbre[i]);
+    }
+}
+
+// Function recherche 
+void searchcont() {
+    char search_nom[100];
+    printf("Enter le nom du contact vous recherchez: ");
+    gets( search_nom);
+    for (int i = 0; i < cont_num; i++) {
+        if (strcmp(contact[i].nom, search_nom) == 0) {
+            printf("Found!\nNom: %s | Numero: %d | Email: %s\n",contact[i].nom, contact[i].numbre[i],contact[i].email[i]);
+            return;
+        }
+   
+    }
+    
+    printf("Contact ne setrouve pas dans le systheme.\n");
+}
+
+// Function modifier
+void updatecont() {
+    char search_mod[100];
+
+    printf("Enter le nom du contact que vous voulez modifier: ");
+    gets( search_mod);
+    for (int i = 0; i < cont_num; i++) {
+        if (strcmp(contact[i].nom, search_mod) == 0) {
+            printf("Enter le nouveau nnom du contact : ");
+            gets( contact[i].nom);
+            printf("Enter le nouveau numero de telephone : ");
+            gets(contact[i].numbre);
+            printf("Enter le nouveau email : ");
+            gets( contact[i].email);
+            printf("Contact modifie avec succes! <3\n");
+            return;
+        }
+    }
+    printf("contact  ne setrouve pas dans le sysetheme.\n");
+}
+
+// Function suprimer 
+void deleteBook() {
+    char search_del[100];
+    int found = 0;
+    printf("Enter le nom du contact vous voulez suprimer: ");
+    gets(search_del);
+    for (int i = 0; i < cont_num; i++) {
+        if (strcmp(contact[i].nom, search_del) == 0) {
+            for (int j = i; j < num_cont-1; j++) {
+                contact[j] = contact[j + 1];
+            }
+            cont_num--; 
+            printf("ce contact est suprime avec succes <3!\n");
+            found = 1;
+            return;
+        }
+    }
+    if (!found)
+    {
+         printf("Livre ne setrouve pas dans le systheme .\n");
+    }
+    
+}
+
+
+// Main menu 
+int main() {
+    int choix;
+    printf("*****Bienvenue dans le système de gestion des contacts!*****\n");
+    do {
+        printf("\n                ------------ Menu ------------              \n");
+        printf("                        1. Ajouter un Contact              \n");
+        printf("                        2. Afficher tous les contacts                \n");
+        printf("                        3. rechercher un contact               \n");
+        printf("                        4. modifier un contact               \n");
+        printf("                        5. Suprimer un contact               \n");
+        printf("                        0. Exit               \n");
+
+        printf(" \n                 Votre choice:               \n");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1: addcont();
+                    retourMenu();
+            break;
+            case 2: displayall();
+                    retourMenu();
+            break;
+            case 3: searchcont(); 
+                    retourMenu();
+            break;
+            case 4: updatecont(); 
+                    retourMenu();
+            break;
+            case 5: deletecont(); 
+                    retourMenu();
+            break;
+            case 0: printf("****************Goodbye!<3****************\n"); 
+                    retourMenu();
+            break;
+            default: printf("choix unvilide. Please try again.8)\n");
+                     retourMenu();
+            
+        }
+    } while (choice != 0);
+
+    return 0;
+}
+ 
+
+
+
+
+
+
+
