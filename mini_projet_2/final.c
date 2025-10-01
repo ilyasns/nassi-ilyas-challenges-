@@ -1,36 +1,172 @@
-void jeux_math(){
-    int somme = 0;
-    int drb ;
-    int point =0;
 
+#include <stdio.h>
+#include <string.h>
 
-    Printf("1 jeux de math ")
-    printf(" 1 donner la somme de: 354 + 76\n");
-    scanf("%d",somme);
-    if (somme == 430)
-    {
-        printf("correct <3\n");
-        point ++;
+#define MAX_CONTS 500 // nember max des contact
 
-    }else
-    {
-        printf("incorrect :/\n");
-        printf("la reponse est 430\n");
-    }
-    printf(" 2 calculer: 278 x 3\n");
-    scanf("%d",drb);
-    if (drb == 834)
-    {
-        printf("correct <3\n");
-        point ++;
-    }else
-    {
-        printf("incorrect :/\n");
-        printf("la reponse est 834\n");
-    }
+// function to return to menu  
+void retourMenu() {
+    printf("\nAppuyez sur Entree pour retourner au menu...");
+    getchar(); 
+    getchar(); 
+    system("clear"); 
     
-    
-    ç
-    
-
 }
+
+// tableau avec contact info
+typedef struct
+{
+    char nom[MAX_CONTS][100];     
+    char email[MAX_CONTS][100];            
+    int numbre[MAX_CONTS]; 
+}contact;
+
+int cont_num = 0; 
+
+// founction ajouter 
+void addcont() {
+    int numajj=0;
+    if (cont_num >= MAX_CONTS) {
+        printf(" Le stockage est plein :/.\n");
+        return;
+    }
+    printf("donner le nombre des contacts vous voulez ajouter!!\n");
+    scanf("%d",&numajj);
+    for (int i = 0; i < numajj; i++)
+    {
+        printf("contact :%d",i+1);
+        printf("\nEnter le nom du contact: ");
+        fgets(contact[i].nom);
+        printf("\nEnter l'adress email du contact: ");
+        fgets(contact[i].email);
+        printf("\nEnter le numero de ce contact : ");
+        fgets(contact[i].numbre);
+        cont_num++; 
+        printf("\nCe contact a ete ajouter ;)!\n");   
+    }
+    
+}
+
+// fonction afficher 
+void displayall() {
+    if (cont_num == 0) {
+        printf("auqu'un contact  se trouve dans le systheme!\n");
+        return;
+    }
+    printf("\nList des contact disponible dans le systheme:\n");
+    for (int i = 0; i < cont_num i++) { 
+        printf("%d. Nom: %s \n| email: %s \n| Numbre: %d\n",  i+1, contact[i].nom, contact[i].email, contact[i].numbre[i]);
+    }
+}
+
+// Function recherche 
+void searchcont() {
+    char search_nom[100];
+    printf("Enter le nom du contact vous recherchez: ");
+    gets( search_nom);
+    for (int i = 0; i < cont_num; i++) {
+        if (strcmp(contact[i].nom, search_nom) == 0) {
+            printf("Found!\nNom: %s | Numero: %d | Email: %s\n",contact[i].nom, contact[i].numbre[i],contact[i].email[i]);
+            return;
+        }
+   
+    }
+    
+    printf("Contact ne setrouve pas dans le systheme.\n");
+}
+
+// Function modifier
+void updatecont() {
+    char search_mod[100];
+
+    printf("Enter le nom du contact que vous voulez modifier: ");
+    fgets( search_mod);
+    for (int i = 0; i < cont_num; i++) {
+        if (strcmp(contact[i].nom, search_mod) == 0) {
+            printf("Enter le nouveau nnom du contact : ");
+            fgets( contact[i].nom);
+            printf("Enter le nouveau numero de telephone : ");
+            fgets(contact[i].numbre);
+            printf("Enter le nouveau email : ");
+            fgets( contact[i].email);
+            printf("Contact modifie avec succes! <3\n");
+            return;
+        }
+    }
+    printf("contact  ne setrouve pas dans le sysetheme.\n");
+}
+
+// Function suprimer 
+void deleteBook() {
+    char search_del[100];
+    int found = 0;
+    printf("Enter le nom du contact vous voulez suprimer: ");
+    fgets(search_del);
+    for (int i = 0; i < cont_num; i++) {
+        if (strcmp(contact[i].nom, search_del) == 0) {
+            for (int j = i; j < num_cont-1; j++) {
+                contact[j] = contact[j + 1];
+            }
+            cont_num--; 
+            printf("ce contact est suprime avec succes <3!\n");
+            found = 1;
+            return;
+        }
+    }
+    if (!found)
+    {
+         printf("Livre ne setrouve pas dans le systheme .\n");
+    }
+    
+}
+
+
+// Main menu 
+int main() {
+    int choix;
+    printf("*****Bienvenue dans le système de gestion des contacts!*****\n");
+    do {
+        printf("\n                ------------ Menu ------------              \n");
+        printf("                        1. Ajouter un Contact              \n");
+        printf("                        2. Afficher tous les contacts                \n");
+        printf("                        3. rechercher un contact               \n");
+        printf("                        4. modifier un contact               \n");
+        printf("                        5. Suprimer un contact               \n");
+        printf("                        0. Exit               \n");
+
+        printf(" \n                 Votre choice:               \n");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1: addcont();
+                    retourMenu();
+            break;
+            case 2: displayall();
+                    retourMenu();
+            break;
+            case 3: searchcont(); 
+                    retourMenu();
+            break;
+            case 4: updatecont(); 
+                    retourMenu();
+            break;
+            case 5: deletecont(); 
+                    retourMenu();
+            break;
+            case 0: printf("****************Goodbye!<3****************\n"); 
+                    retourMenu();
+            break;
+            default: printf("choix unvilide. Please try again.8)\n");
+                     retourMenu();
+            
+        }
+    } while (choice != 0);
+
+    return 0;
+}
+ 
+
+
+
+
+
